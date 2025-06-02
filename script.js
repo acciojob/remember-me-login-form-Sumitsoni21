@@ -2,11 +2,11 @@
 
 
 
-const usernameInp = document.getelementById("username");
-const passwordInp = document.getelementById("password");
-const checkboxInp = document.getelementById("checkbox");
-const subBtn = document.getelementById("submit");
-const existBtn = document.getelementById("existing");
+const usernameInp = document.getElementById("username");
+const passwordInp = document.getElementById("password");
+const checkboxInp = document.getElementById("checkbox");
+const subBtn = document.getElementById("submit");
+const existBtn = document.getElementById("existing");
 
 const savedUsername = localStorage.getItem("savedUsername");
 const savedPassword = localStorage.getItem("savedPassword");
@@ -15,7 +15,7 @@ const savedPassword = localStorage.getItem("savedPassword");
 if(savedUsername && savedPassword){
 	existBtn.style.display= "inline-block";
 }
-document.getelementById('loginform').addEventListener("submit", function(e){
+document.getElementById('loginform').addEventListener("submit", function(e){
 	e.preventDefault();
 	const username = usernameInp.value;
 	const password = passwordInp.value;
@@ -28,14 +28,14 @@ document.getelementById('loginform').addEventListener("submit", function(e){
 	}else {
         localStorage.removeItem("savedUsername");
         localStorage.removeItem("savedPassword");
-        existingBtn.style.display = "none";
+        existBtn.style.display = "none";
       }
 })
 
 existBtn.addEventListener("click",()=>{
 	const savedUsername = localStorage.getItem("savedUsername");
 	if(savedUsername){
-	alert("Logged in as" + savedUsername);
+	alert("Logged in as " + savedUsername);
 	}
 })
 
