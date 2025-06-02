@@ -8,8 +8,8 @@ const checkboxInp = document.getElementById("checkbox");
 const subBtn = document.getElementById("submit");
 const existBtn = document.getElementById("existing");
 
-const savedUsername = localStorage.getItem("savedUsername");
-const savedPassword = localStorage.getItem("savedPassword");
+const savedUsername = localStorage.getItem("username");
+const savedPassword = localStorage.getItem("password");
 
 
 if(savedUsername && savedPassword){
@@ -22,18 +22,18 @@ document.getElementById('loginform').addEventListener("submit", function(e){
 	alert(`Logged in as ${username}`);
 
 	if(checkboxInp.checked){
-		localStorage.setItem("savedUsername", username);
-		localStorage.setItem("savedPassword",password);
+		localStorage.setItem("username", username);
+		localStorage.setItem("password",password);
 		existBtn.style.display="inline-block";
 	}else {
-        localStorage.removeItem("savedUsername");
-        localStorage.removeItem("savedPassword");
+        localStorage.removeItem("username");
+        localStorage.removeItem("password");
         existBtn.style.display = "none";
       }
 })
 
 existBtn.addEventListener("click",()=>{
-	const savedUsername = localStorage.getItem("savedUsername");
+	const savedUsername = localStorage.getItem("username");
 	if(savedUsername){
 	alert("Logged in as " + savedUsername);
 	}
